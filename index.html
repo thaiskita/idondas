@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Identificador de ondas eletromagnéticas</title>
+</head>
+<body>
+    <fieldset>
+        <legend>Identificador de ondas eletromagnéticas</legend>
+        <p>Informe a frequência em Hz: <input type="number" id="freq"></p>
+        <button onclick="calcular(freq.value)">Calcular</button>
+        <p>Tipo de radiação: <input type="text" id="tdr" size="75px" readOnly></p>
+        <p>Comprimento de onda (em metros): <input id="cda" size="75px" readOnly></p>
+        <p>Valor comparativo do comprimento de onda: <input id="comparativo" size="75px" readOnly></p>
+    </fieldset>
+        <p>Valores do tipo de radiação:</p>
+        <ul>
+            <li>Raios gama de alta energia (≥10^21)</li>
+            <li>Raios gama (≥10^19)</li>
+            <li>Raio-X (≥10^17)</li>
+            <li>Ultravioleta (≥10^15)</li>
+            <li>Luz visível (≥10^13)</li>
+            <li>Infravermelho (≥3,01^11)</li>
+            <li>Micro-ondas (≥3^8)</li>
+            <li>Rádio (<3^8)</li>
+        </ul>
+        <p>Valores comparativos do comprimento de onda:</p>
+        <ul>
+            <li>Universo visível (>10^26)</li>
+            <li>Via Láctea (≥10^21)</li>
+            <li>Galáxia espiral (≥10^18)</li>
+            <li>1 ano-luz (≥10^15)</li>
+            <li>Sistema Solar (≥10^12)</li>
+            <li>Sol (≥10^9)</li>
+            <li>Terra (≥10^6)</li>
+            <li>Monte Everest (≥10^3)</li>
+            <li>Ser humano (≥10^0)</li>
+            <li>Mosquito (≥10^-3)</li>
+            <li>Bactéria (≥10^-6)</li>
+            <li>Vírus (≥10^-9)</li>
+            <li>Átomo (≥10^-12)</li>
+            <li>Próton (≥10^-15)</li>
+            <li>Elétron (<10^-15)</li>
+        </ul>
+</body>
+<script type="text/javascript">
+    function calcular(freq){
+        comprimento=299792458/freq //Calcula o comprimento de onda.
+        cda.value = comprimento
+
+        if(freq>=Math.pow(10,21)){
+            tdr.value = "Raios gama de alta energia (≥10^21)"
+        }else if(freq>=Math.pow(10,19)){
+            tdr.value = "Raios gama (≥10^19)"
+        }else if(freq>=Math.pow(10,17)){
+            tdr.value = "Raio-X (≥10^17)"
+        }else if(freq>=Math.pow(10,15)){
+            tdr.value = "Ultravioleta (≥10^15)"
+        }else if(freq>=Math.pow(10,13)){
+            tdr.value = "Luz visível (≥10^13)"
+        }else if(freq>=Math.pow(3.01,11)){
+            tdr.value = "Infravermelho (≥3,01^11)"
+        }else if(freq>=Math.pow(3,8)){
+            tdr.value = "Micro-ondas (≥3^8)"
+        }else if(freq<Math.pow(3,8)){
+            tdr.value = "Rádio (<3^8)"
+        } //Compara a frequência com os tipos de radiação.
+
+        if(comprimento>Math.pow(10,24)){
+            comparativo.value = "Universo visível (>10^26)"
+        }else if(comprimento>=Math.pow(10,21)){
+            comparativo.value = "Via Láctea (≥10^21)"
+        }else if(comprimento>=Math.pow(10,18)){
+            comparativo.value = "Galáxia espiral (≥10^18)"
+        }else if(comprimento>=Math.pow(10,15)){
+            comparativo.value = "1 ano-luz (≥10^15)"
+        }else if(comprimento>=Math.pow(10,12)){
+            comparativo.value = "Sistema Solar (≥10^12)"
+        }else if(comprimento>=Math.pow(10,9)){
+            comparativo.value = "Sol (≥10^9)"
+        }else if(comprimento>=Math.pow(10,6)){
+            comparativo.value = "Terra (≥10^6)"
+        }else if(comprimento>=Math.pow(10,3)){
+            comparativo.value = "Monte Everest (≥10^3)"
+        }else if(comprimento>=Math.pow(10,0)){
+            comparativo.value = "Ser humano (≥10^0)"
+        }else if(comprimento>=Math.pow(10,-3)){
+            comparativo.value = "Mosquito (≥10^-3)"
+        }else if(comprimento>=Math.pow(10,-6)){
+            comparativo.value = "Bactéria (≥10^-6)"
+        }else if(comprimento>=Math.pow(10,-9)){
+            comparativo.value = "Vírus (≥10^-9)"
+        }else if(comprimento>=Math.pow(10,-12)){
+            comparativo.value = "Átomo (≥10^-12)"
+        }else if(comprimento>=Math.pow(10,-15)){
+            comparativo.value = "Próton (≥10^-15)"
+        }else if(comprimento<Math.pow(10,-15)){
+            comparativo.value = "Elétron (<10^-15)"
+        } //Compara o comprimento de onda com as ordens de grandeza.
+    }
+    </script>
+</html>
