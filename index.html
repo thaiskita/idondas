@@ -2,46 +2,143 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <title>Identificador de ondas eletromagnéticas</title>
+    <title>Identificador de Ondas Eletromagnéticas</title>
+    <style type="text/css">
+        @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&display=swap');
+
+        body{
+            margin: 30px;
+            font-family: 'Open Sans', sans-serif;
+        }
+
+        label, button{
+            display: flex;
+        }
+
+        label{
+            margin-bottom: 7px;
+        }
+
+        input, button{
+            margin-bottom: 20px;
+        }
+
+        input{
+            width: 100%;
+            height: 30px;
+            border: 1px solid rgb(201, 209, 218);
+            background-color: rgb(242, 255, 255);
+            padding: 5px;
+            border-radius: 5px;
+            padding-left: 10px;
+        }
+
+        input[type=number]::-webkit-inner-spin-button { 
+            -webkit-appearance: none;
+    
+        }
+
+        input[type=number]{ 
+            -moz-appearance: textfield;
+            appearance: textfield;
+
+        }
+
+        .botao{
+            background-color: powderblue;
+            box-shadow: 0px 6px 0px rgb(148, 197, 206);
+            border: none;
+            border-radius: 5px;
+            padding: 12px;
+            padding-left: 25px;
+            padding-right: 25px;
+            cursor: pointer;
+            font-size: medium;
+            transition: 0.2s all;
+        }
+
+        .botao:hover {
+            background-color: #bce8ee;
+            box-shadow: 0px 6px 0px #9fdce7;
+        }
+
+        fieldset{
+            padding-top: 20px;
+            padding-left: 20px;
+            padding-right: 40px;
+            border-radius: 5px;
+            border: 1px solid silver;
+            background-color: rgb(234, 239, 243);
+        }
+
+        p{
+            margin-top: 30px;
+        }
+
+        input:focus{
+            box-shadow: inset 0px 0px 4px rgb(214, 220, 224), 0px 0px 4px rgb(214, 220, 224);
+            outline: none;
+            transition: 0.2s all;
+        }
+
+        #linha{
+            margin-right: -15px;
+            border-bottom: 1px solid #bebebe;
+            margin-top: 30px;
+            margin-bottom: 20px;
+        }
+
+        li{
+            padding-bottom: 2px;
+        }
+
+        .botao:active {
+            transform: translateY(4px);
+            box-shadow: 0px 3px 0px #9fdce7;
+            transition: 0.1s all;
+        }
+        
+    </style>
 </head>
 <body>
-    <fieldset>
-        <legend>Identificador de ondas eletromagnéticas</legend>
-        <p>Informe a frequência em Hz: <input type="number" id="freq"></p>
-        <button onclick="calcular(freq.value)">Calcular</button>
-        <p>Tipo de radiação: <input type="text" id="tdr" size="75px" readOnly></p>
-        <p>Comprimento de onda (em metros): <input id="cda" size="75px" readOnly></p>
-        <p>Valor comparativo do comprimento de onda: <input id="comparativo" size="75px" readOnly></p>
-    </fieldset>
-        <p>Valores do tipo de radiação:</p>
-        <ul>
-            <li>Raios gama de alta energia (≥10^21)</li>
-            <li>Raios gama (≥10^19)</li>
-            <li>Raio-X (≥10^17)</li>
-            <li>Ultravioleta (≥10^15)</li>
-            <li>Luz visível (≥10^13)</li>
-            <li>Infravermelho (≥3,01^11)</li>
-            <li>Micro-ondas (≥3^8)</li>
-            <li>Rádio (<3^8)</li>
-        </ul>
-        <p>Valores comparativos do comprimento de onda:</p>
-        <ul>
-            <li>Universo visível (>10^26)</li>
-            <li>Via Láctea (≥10^21)</li>
-            <li>Galáxia espiral (≥10^18)</li>
-            <li>1 ano-luz (≥10^15)</li>
-            <li>Sistema Solar (≥10^12)</li>
-            <li>Sol (≥10^9)</li>
-            <li>Terra (≥10^6)</li>
-            <li>Monte Everest (≥10^3)</li>
-            <li>Ser humano (≥10^0)</li>
-            <li>Mosquito (≥10^-3)</li>
-            <li>Bactéria (≥10^-6)</li>
-            <li>Vírus (≥10^-9)</li>
-            <li>Átomo (≥10^-12)</li>
-            <li>Próton (≥10^-15)</li>
-            <li>Elétron (<10^-15)</li>
-        </ul>
+    <h1>Identificador de Ondas Eletromagnéticas</h1>
+        <fieldset>
+            <label for="freq">Informe a frequência em Hz: </label><input type="number" id="freq">
+            <button class="botao" onclick="calcular(freq.value)">Calcular</button>
+            <div id="linha"></div>
+            <label for="tdr">Tipo de radiação: </label><input type="text" id="tdr" readOnly>
+            <label for="cda">Comprimento de onda (em metros): </label><input id="cda" readOnly>
+            <label for="comparativo">Valor comparativo do comprimento de onda: </label><input id="comparativo" readOnly>
+        </fieldset>
+            <p>Valores do tipo de radiação:</p>
+            <ul>
+                <li>Raios gama de alta energia (≥10^21)</li>
+                <li>Raios gama (≥10^19)</li>
+                <li>Raio-X (≥10^17)</li>
+                <li>Ultravioleta (≥10^15)</li>
+                <li>Luz visível (≥10^13)</li>
+                <li>Infravermelho (≥3,01^11)</li>
+                <li>Micro-ondas (≥3^8)</li>
+                <li>Rádio (<3^8)</li>
+            </ul>
+            <p>Valores comparativos do comprimento de onda:</p>
+            <ul>
+                <li>Universo visível (>10^26)</li>
+                <li>Via Láctea (≥10^21)</li>
+                <li>Galáxia espiral (≥10^18)</li>
+                <li>1 ano-luz (≥10^15)</li>
+                <li>Sistema Solar (≥10^12)</li>
+                <li>Sol (≥10^9)</li>
+                <li>Terra (≥10^6)</li>
+                <li>Monte Everest (≥10^3)</li>
+                <li>Ser humano (≥10^0)</li>
+                <li>Mosquito (≥10^-3)</li>
+                <li>Bactéria (≥10^-6)</li>
+                <li>Vírus (≥10^-9)</li>
+                <li>Átomo (≥10^-12)</li>
+                <li>Próton (≥10^-15)</li>
+                <li>Elétron (<10^-15)</li>
+            </ul>
 </body>
 <script type="text/javascript">
     function calcular(freq){
@@ -97,6 +194,14 @@
         }else if(comprimento<Math.pow(10,-15)){
             comparativo.value = "Elétron (<10^-15)"
         } //Compara o comprimento de onda com as ordens de grandeza.
+
+        if(freq==0){
+            alert("Insira um valor válido.");
+            freq.value = ""
+            tdr.value = ""
+            cda.value = ""
+            comparativo.value = ""
+        }
     }
     </script>
 </html>
