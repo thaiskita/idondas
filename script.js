@@ -52,7 +52,7 @@ function calcular(freq){
         comparativo.value = "Elétron (<10^-15)"
     } //Compara o comprimento de onda com as ordens de grandeza.
 
-    if(freq==0){
+    if(freq<=0){
         alert("Insira um valor válido.");
         freq.value = ""
         tdr.value = ""
